@@ -14,6 +14,8 @@ class Hospital:
     
     def add_department(self, department):
         """Add a department to the hospital"""
+        if not isinstance(department, Department):
+            raise TypeError("Expected Department instance")
         self.departments.append(department)
 
 
@@ -39,10 +41,14 @@ class Department:
     
     def add_patient(self, patient):
         """Add a patient to the department"""
+        if not isinstance(patient, Patient):
+            raise TypeError("Expected Patient instance")
         self.patients.append(patient)
     
     def add_staff(self, staff):
         """Add a staff member to the department"""
+        if not isinstance(staff, Staff):
+            raise TypeError("Expected Staff instance")
         self.staff.append(staff)
 
 
