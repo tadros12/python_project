@@ -80,12 +80,38 @@ class Patient(Person):
 
 
 class Staff(Person):
-    """Staff class inheriting from Person with position attribute"""
+
+    """ 
+    staff class inheriting from Person with role and salary attributes
+    param role: str - staff role 
+    param salary: float - staff salary 
     
-    def __init__(self, name, age, position):
-        super().__init__(name, age)
-        self.position = position
+    """
     
+    def __init__(self, name, age, gender, contact_info, role, salary):
+        super().__init__(name, age, gender, contact_info)
+        self.role = role
+        self.__salary = salary  #private
+        self.is_active = True
+
+    def get_salary(self):
+
+        return f"${self.__salary:,.2f}"
+    
+
+    def update_salary(self, amount):
+        """ 
+        Update staff salary with validation
+        param amount: float - new salary amount
+
+
+        """
+        if amount > 0:
+            self.__salary = amount
+            print(f"Salary updated for {self.name}.")
+        else:
+            print("Invalid salary amount.")
+
     def view_info(self):
-        """View staff information"""
-        return f"Staff - Name: {self.name}, Age: {self.age}, Position: {self.position}"
+        status = "Active" if self.is_active else "On Leave/Retired"
+        return f"Staff: {self.name} | Role: {self.role} | Status: {status}"
