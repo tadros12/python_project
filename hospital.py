@@ -20,12 +20,27 @@ class Hospital:
 
 
 class Person:
-    """Person class with name and age attributes"""
+    """Person class with name and age attributes
+    param name: str - person's name
+    param age: int - person's age (must be non-negative)
+    """
     
-    def __init__(self, name, age):
+    def __init__(self, name, age , gender , contact_info):
         self.name = name
         self.age = age
+        self.gender = gender
+        self.contact_info = contact_info
     
+    def set_age(self, age):
+        """Set person's age with validation
+            param age: int - age must be non-negative
+        """
+        if age < 0:
+            raise ValueError("Age cannot be negative")
+        self.age = age
+        
+        
+        
     def view_info(self):
         """View person information"""
         return f"Name: {self.name}, Age: {self.age}"
