@@ -29,21 +29,21 @@ if menu == "Dashboard":
                 st.write("**Patients:**", [p.name for p in dept.patient_list])
 
 
-# elif menu == "Add Staff":
-#     st.header("Register New Staff Member")
-#     with st.form("staff_form"):
-#         name = st.text_input("Full Name")
-#         age = st.number_input("Age", min_value=18, max_value=100)
-#         gender = st.selectbox("Gender", ["Male", "Female", "Other"])
-#         role = st.text_input("Role (e.g. Surgeon, Nurse)")
-#         salary = st.number_input("Monthly Salary", min_value=0)
-#         dept_name = st.selectbox("Department", list(st.session_state.departments.keys()))
+elif menu == "Add Staff":
+    st.header("Register New Staff Member")
+    with st.form("staff_form"):
+        name = st.text_input("Full Name")
+        age = st.number_input("Age", min_value=18, max_value=100)
+        gender = st.selectbox("Gender", ["Male", "Female", "Other"])
+        role = st.text_input("Role (e.g. Surgeon, Nurse)")
+        salary = st.number_input("Monthly Salary", min_value=0)
+        dept_name = st.selectbox("Department", list(st.session_state.departments.keys()))
         
-#         submitted = st.form_submit_button("Hire Staff")
-#         if submitted:
-#             new_staff = Staff(name, age, gender, "N/A", role, salary)
-#             st.session_state.departments[dept_name].staff_list.append(new_staff)
-#             st.success(f"Added {name} to {dept_name}")
+        submitted = st.form_submit_button("Hire Staff")
+        if submitted:
+            new_staff = Staff(name, age, gender, "N/A", role, salary)
+            st.session_state.departments[dept_name].staff_list.append(new_staff)
+            st.success(f"Added {name} to {dept_name}")
 
 
 elif menu == "Register Patient":
