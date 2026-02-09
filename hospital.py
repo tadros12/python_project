@@ -69,16 +69,40 @@ class Department:
 
 
 class Patient(Person):
-    """Patient class inheriting from Person with medical_record attribute"""
-    
-    def __init__(self, name, age, medical_record):
-        super().__init__(name, age)
-        self.medical_record = medical_record
-    
-    def view_record(self):
-        """View patient's medical record"""
-        return f"Patient: {self.name}, Age: {self.age}, Medical Record: {self.medical_record}"
+    """Simple Patient class"""
 
+    def __init__(self, name, age, medical_record_id):
+        super().__init__(name, age)
+        self.medical_record_id = medical_record_id
+
+        self.medications = []    
+        self.visits = []
+        self.doctor_notes = []
+            
+    def add_medication(self, medication):
+        self.medications.append(medication)
+
+    def add_visit(self, date, reason):
+        self.visits.append(f"{date} - {reason}")
+
+    def add_doctor_note(self, note):
+        self.doctor_notes.append(note)
+
+    def view_record(self):
+        return f"""
+Patient Name: {self.name}
+Age: {self.age}
+Medical Record ID: {self.medical_record_id}
+
+Medications:
+{self.medications}
+
+Visits:
+{self.visits}
+
+Doctor Notes:
+{self.doctor_notes}
+"""
 
 class Staff(Person):
 
@@ -116,3 +140,5 @@ class Staff(Person):
     def view_info(self):
         status = "Active" if self.is_active else "On Leave/Retired"
         return f"Staff: {self.name} | Role: {self.role} | Status: {status}"
+    
+    def view info
