@@ -51,11 +51,12 @@ class Department:
     
     def __init__(self, name):
         self.name = name
-        self.patients = []
-        self.staff = []
+        self.patients_list = []
+        self.staff_list = []
     
     def add_patient(self, patient):
         """Add a patient to the department"""
+        
         if not isinstance(patient, Patient):
             raise TypeError("Expected Patient instance")
         self.patients.append(patient)
