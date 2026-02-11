@@ -55,24 +55,21 @@ class Department:
         self.staff_list = []
     
     def add_patient(self, patient):
-        """Add a patient to the department"""
-        
         if not isinstance(patient, Patient):
             raise TypeError("Expected Patient instance")
-        self.patients.append(patient)
+        self.patients_list.append(patient)
     
     def add_staff(self, staff):
-        """Add a staff member to the department"""
         if not isinstance(staff, Staff):
             raise TypeError("Expected Staff instance")
-        self.staff.append(staff)
+        self.staff_list.append(staff)
 
 
 class Patient(Person):
     """Simple Patient class"""
 
-    def __init__(self, name, age, medical_record_id):
-        super().__init__(name, age)
+    def __init__(self, name, age, gender, contact_info, medical_record_id):
+        super().__init__(name, age, gender, contact_info)
         self.medical_record_id = medical_record_id
 
         self.medications = []    
@@ -141,4 +138,3 @@ class Staff(Person):
         status = "Active" if self.is_active else "On Leave/Retired"
         return f"Staff: {self.name} | Role: {self.role} | Status: {status}"
     
-    def view info
